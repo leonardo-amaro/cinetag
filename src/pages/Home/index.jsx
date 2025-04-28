@@ -1,3 +1,7 @@
+import Cabecalho from "@/components/Cabecalho"
+
 export default function Home() {
-  return <h1>Home</h1>;
+  return (
+    <Cabecalho />
+  );
 }
