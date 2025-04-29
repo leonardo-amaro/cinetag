@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FavoritosProvider from "./context/FavoritosContext";
 import Cabecalho from "./components/Cabecalho";
 import Container from "./components/Container";
 import Rodape from "./components/Rodape";
@@ -10,10 +11,12 @@ const AppRoutes = () => {
     <BrowserRouter>
       <Cabecalho />
       <Container>
-        <Routes>
-          <Route index element={ <Home /> } />
-          <Route path="favoritos" element={ <Favoritos /> } />
-        </Routes>
+        <FavoritosProvider>
+          <Routes>
+            <Route index element={ <Home /> } />
+            <Route path="favoritos" element={ <Favoritos /> } />
+          </Routes>
+        </FavoritosProvider>
       </Container>
       <Rodape />
     </BrowserRouter>
