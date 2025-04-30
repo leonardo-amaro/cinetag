@@ -1,8 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import FavoritosProvider from "./context/FavoritosContext";
-import Cabecalho from "./components/Cabecalho";
-import Container from "./components/Container";
-import Rodape from "./components/Rodape";
+import PaginaBase from "./pages/PaginaBase";
 import Home from "./pages/Home";
 import Favoritos from "./pages/Favoritos";
 import Player from "./pages/Player";
@@ -11,18 +8,14 @@ import NaoEncontrada from "./pages/NaoEncontrada";
 const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <Cabecalho />
-      <Container>
-        <FavoritosProvider>
-          <Routes>
-            <Route index element={ <Home /> } />
-            <Route path="favoritos" element={ <Favoritos /> } />
-            <Route path="player/:id" element={ <Player /> } />
-            <Route path="*" element={ <NaoEncontrada /> } />
-          </Routes>
-        </FavoritosProvider>
-      </Container>
-      <Rodape />
+      <Routes>
+        <Route path="/" element={ <PaginaBase /> }>
+          <Route index element={ <Home /> } />
+          <Route path="favoritos" element={ <Favoritos /> } />
+          <Route path="player/:id" element={ <Player /> } />
+          <Route path="*" element={ <NaoEncontrada /> } />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
